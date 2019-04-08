@@ -144,7 +144,7 @@ PROMPT is used as the prompt."
                       files)))
     (setq package-requires-emacs-version (-max-by (-compose #'not #'version<)
                                                   (--map (nth 1 it) deps))
-          package-requires-packages (-distinct (apply '-concat (--map (-drop 2 it) deps))))
+          package-requires-required-packages (-distinct (apply '-concat (--map (-drop 2 it) deps))))
     (with-current-buffer (get-buffer-create package-requires-buffer)
       (setq buffer-read-only nil)
       (erase-buffer)
@@ -158,7 +158,7 @@ PROMPT is used as the prompt."
               "\n=> " package-requires-emacs-version
               "\n\nPackages
 -------------\n"
-              (string-join package-requires-packages " ")
+              (string-join package-requires-required-packages " ")
               "\n")
       (setq buffer-read-only t)
       (local-set-key "q" #'quit-window))
