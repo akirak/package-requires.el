@@ -55,7 +55,7 @@
   (cond
    ((featurep 'helm) 'helm)
    (t nil))
-  "Completion backend used for selecting files,"
+  "Completion backend used for selecting files."
   :group 'package-requires
   :type '(or (const :tag "Default" nil)
              (const :tag "Helm" helm)))
@@ -66,7 +66,10 @@
   "List of all recent Emacs versions in ascending order.")
 
 (defun package-requires--read-header (&optional allow-empty)
-  "Extract a list of dependencies from the library header."
+  "Extract a list of dependencies from the library header.
+
+Unless ALLOW-EMPTY is set to non-nil, this function throws an error
+if there is no \"Package-Requires\" header in the buffer."
   (save-excursion
     (goto-char (point-min))
     (if (re-search-forward (rx bol ";;" (* space) "Package-Requires:")
