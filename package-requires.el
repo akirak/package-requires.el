@@ -37,9 +37,13 @@
 ;;; Code:
 
 (require 'dash)
+(require 'dash-functional)
 (require 'cl-lib)
+(require 'subr-x)
 
 (autoload 'helm "helm")
+(autoload 'helm-marked-candidates "helm")
+(autoload 'helm-build-sync-source "helm-source")
 
 (declare-function 'helm "helm")
 (declare-function 'helm-build-sync-source "helm-source")
