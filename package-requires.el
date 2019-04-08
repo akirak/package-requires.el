@@ -4,7 +4,7 @@
 
 ;; Author: Akira Komamura <akira.komamura@gmail.com>
 ;; Version: 0.1
-;; Package-Requires: ((emacs "25.1") (dash "2.10"))
+;; Package-Requires: ((emacs "25.1") (dash "2.10") (dash-functional "1.2.0"))
 ;; Keywords: languages tools
 ;; URL: https://github.com/akirak/package-requires.el
 
