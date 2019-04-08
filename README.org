@@ -1,0 +1,22 @@
+* package-requires.el
+[[https://travis-ci.org/akirak/package-requires.el][https://travis-ci.org/akirak/package-requires.el.svg?branch=master]]
+
+=package-requires.el= is a package for Emacs Lisp package developers
+which summarises dependencies (which are defined in =Package-Requires= header) of elisp files in a directory.
+You can browse the result in a buffer or insert it into a file through snippets.
+Now you can create an Emacs Lisp package with a test suite even faster.
+** Configuration
+*** Yasnippet snippets
+It is recommended that you define snippets for quickly creating a new Emacs Lisp package. The following functions will be helpful:
+
+- =package-requires-emacs-version= returns the required Emacs version.
+- =package-requires-format-required-packages= returns the required packages separated by whitespace. This is useful for generating a configuration file for a =Makefile=-based testing suite such as [[https://github.com/vermiculus/emake.el/][emake]] and [[https://gitlab.petton.fr/DamienCassou/makel][makel]].
+- =package-requires-travis-matrix= returns a YAML configuration code to be used in =.travis.yml= for Travis CI. It contains a list of =EMACS_VERSION= strings with Emacs versions greater than or equal to the specified version.
+
+These functions uses the most recent dependency information if you have already run one of the interactive commands in this package (i.e. =package-requires-show-dir-deps= or =package-requires-show-file-deps=) in the Emacs session.
+** Usage
+- =package-requires-show-dir-deps= command displays the dependencies of all Emacs Lisp files in the default directory.
+- =package-requires-show-file-deps= command displays the dependencies of a particular Emacs Lisp file in the default directory. If you set =package-requires-file-selector= to ='helm=, you can use helm to select multiple files.
+- =package-requires-redisplay= command redisplays the most recent result.
+** License
+GPL v3
